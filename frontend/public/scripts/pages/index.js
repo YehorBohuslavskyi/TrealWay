@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const components = [
     { url: '../../components/info.html',    target: '#info-placeholder',    onload: 'initTransfer' },
     { url: '../../components/reasons.html', target: '#reasons-placeholder' },
+    { url: '../../components/services.html', target: '#services-placeholder' },
   ];
 
   Promise.all(
