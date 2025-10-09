@@ -1,4 +1,7 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   width: 100%;
   height: 112px;
   background-color: var(--dark-gray-color);
@@ -39,7 +42,7 @@
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
-    font-family: var(--main-font);
+    font-family: var(--roboto-mono-font);
     font-weight: 500;
     width: fit-content;
     white-space: nowrap;

@@ -7,13 +7,28 @@
   --violet-color: #BAB1E7;
   --dark-violet-color: #7563CE;
   --light-violet-color: #D2CDEA;
+  --logo-color: #988BDA;
+  --border-gray-color: #1F1F1F;
 
-  --main-font: "Roboto Mono", sans-serif;
+
+  --roboto-mono-font: "Roboto Mono", sans-serif;
+  --roboto-flex-font: "Roboto Flex", sans-serif;
+
+
+  --runnung-line: 30s;
+  --runnung-line-color: #676665;
 }
 
 @font-face {
   font-family: 'Roboto Mono';
   src: url('../fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url('../fonts/robotoFlex.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
 }
