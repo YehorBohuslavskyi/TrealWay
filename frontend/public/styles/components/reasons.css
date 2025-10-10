@@ -17,7 +17,7 @@
   gap: 16px;
   font-family: var(--roboto-flex-font);
   font-weight: 600;
-  font-size: 40px;
+  font-size: var(--title-size);
   text-transform: uppercase;
   color: var(--light-color);
 

@@ -17,6 +17,14 @@
 
   --runnung-line: 30s;
   --runnung-line-color: #676665;
+
+  --title-size: 36px;
+  --title-btn-size: 18px;
+
+  --text-size: 24px;
+
+  --q-size: 20px;
+  --a-size: 18px;
 }
 
 @font-face {
@@ -28,7 +36,7 @@
 
 @font-face {
   font-family: 'Roboto Flex';
-  src: url('../fonts/robotoFlex.ttf') format('ttf');
+  src: url('../fonts/RobotoFlex.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
 }
