@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { url: '../../components/services.html', target: '#services-placeholder' },
     { url: '../../components/projects.html', target: '#projects-placeholder' },
     { url: '../../components/QA.html', target: '#qa-placeholder' },
+    { url: '../../components/footer.html', target: '#footer-placeholder' },
   ];
 
   Promise.all(

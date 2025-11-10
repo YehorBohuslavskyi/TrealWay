@@ -110,6 +110,10 @@
             text-transform: uppercase;
             opacity: .95;
           }
+
+          span:hover{
+            color: var(--light-violet-color);
+          }
         }
       }
 
@@ -128,7 +132,7 @@
 
   img{
     width: 100%;
-    height: 100%;
+    height: 576px;
   }
 }
 

@@ -139,6 +139,7 @@
   flex-direction: column;
   gap: 12px;
   border: none;
+  resize: none;
 }
 
 .qa-form label{
@@ -160,6 +161,7 @@
   color: var(--light-color);
   outline: none;
   border: none;
+  resize: none;
 }
 
 .qa-form input::placeholder,
