@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const components = [
-    { url: '../../components/header.html', target: '#header-placeholder', onload: 'initTransfer' },
+    { url: '../../components/header.html', target: '#header-placeholder'},
     { url: '../../components/info.html', target: '#info-placeholder' },
     { url: '../../components/reasons.html', target: '#reasons-placeholder' },
     { url: '../../components/services.html', target: '#services-placeholder' },

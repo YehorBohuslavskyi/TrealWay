@@ -45,6 +45,7 @@
   padding: 40px;
   border-radius: 12px;
   width: 100%;
+  justify-content: space-between;
 }
 
 .projects-item-header {
