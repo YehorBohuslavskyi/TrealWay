@@ -29,3 +29,22 @@ body::-webkit-scrollbar {
   top: 10px;
   z-index: 1000;
 }
+
+.scroll-up{
+  position: sticky;
+  bottom: 40px;
+  left: 1900px;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  background-color: var(--dark-violet-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.disabled{
+  display: none;
+}
+
