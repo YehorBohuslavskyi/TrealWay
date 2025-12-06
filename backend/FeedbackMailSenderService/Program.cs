@@ -14,6 +14,14 @@ namespace FeedbackMailSenderService
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(corsOptions => corsOptions.AddPolicy("AllowAll", corsOptionsBuilder =>
+            {
+                corsOptionsBuilder
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            }));
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -24,6 +32,8 @@ namespace FeedbackMailSenderService
 
             var app = builder.Build();
             
+            app.UseCors("AllowAll");
+
             if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
             {
                 app.UseSwagger();
