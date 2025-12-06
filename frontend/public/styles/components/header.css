@@ -8,6 +8,7 @@
   padding: 24px 24px 24px 48px;
   display: flex;
   justify-content: space-between;
+  backdrop-filter: blur(24px);
 }
 
 .logo {

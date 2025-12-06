@@ -9,10 +9,10 @@
   --light-violet-color: #D2CDEA;
   --logo-color: #988BDA;
   --border-gray-color: #1F1F1F;
-  --header-color: #1A1A1AE0;
+  --header-color: rgba(26, 26, 26, 0.8);
 
 
-  --roboto-mono-font: "Roboto Mono", sans-serif;
+  --roboto-mono-font: "text", sans-serif;
   --roboto-flex-font: "Roboto Flex", sans-serif;
 
 
@@ -29,8 +29,8 @@
 }
 
 @font-face {
-  font-family: 'Roboto Mono';
-  src: url('../fonts/roboto-mono/RobotoMono-VariableFont_wght.ttf') format('ttf');
+  font-family: 'text';
+  src: url('../fonts/roboto-mono/RobotoMono-Regular.ttf') format('ttf');
   font-weight: 500;
   font-style: normal;
 }

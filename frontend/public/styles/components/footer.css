@@ -184,6 +184,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
 }
 
 .footer-info-nav-soon{
@@ -195,6 +196,8 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  opacity: 20%;
+
 
   
   div{
@@ -214,6 +217,7 @@
 }
 
 .footer-info-mail-soon{
+  opacity: 20%;
   width: 1150px;
   height: 125px;
   background-color: var(--dark-gray-color);
