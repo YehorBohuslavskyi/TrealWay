@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: Feedback Mailer Service
+  version: v1
+tags:
+  - name: General
+paths:
+  /client:
+    post:
+      tags:
+        - General
+      summary: Info about customer 
+      description: Info about customer that will be sent by service using mail 
+      requestBody: 
+        required: true
+        description: JSON formatted info about customer
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRequest'
+      responses:
+        '200': 
+          description: Successfully sent
+        '400':
+          description: Server cannot deserialize a provided object. 
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+        '422':
+          description: Server denied a provided object. Probably bad format or dangerous payload  
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+        '500':
+          description: Internal server error
+          content: 
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'  
+components:
+  schemas:
+    ClientRequest:
+      type: object
+      required: 
+        - name
+        - email
+      properties:
+        name:
+          type: string 
+          example: John
+          minLength: 2
+          maxLength: 128
+        email:
+          type: string
+          format: email
+          example: johnsmith@example.com
+          minLength: 6
+          maxLength: 256
+        questionText:
+          type: string
+          example: I am interested in this service
+          maxLength: 512
+    ProblemDetails:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Not Found
+          description: Title of the problem
+        status:
+          type: number
+          example: 404
+          description: Status code of the problem
+        detail:
+          type: string
+          example: Requested page was not found on the server
+          description: Detail of the occured problem
+    ValidationProblemDetails:
+      type: object
+      properties: 
+        type: 
+          type: string
+          example: "https://tools.ietf.org/html/rfc9110#section-15.5.1"
+        title:
+          type: string
+          example: One or more validation errors occurred.
+          description: Title of the problem
+        status:
+          type: number
+          example: 400
+          description: Status code of the problem
+        errors:
+          type: array
+          items:
+            type: string
+            example: Source contains forbidden characters
+          description: Validation errors
+            

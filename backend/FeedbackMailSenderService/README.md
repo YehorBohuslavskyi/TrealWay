@@ -1,0 +1,1 @@
+Check Dockerfile and appsettings.json. When deploying is needed to set envs from `"Email"` section (i.e. `-e Email__Smtp__Login=sender@gmail.com`).
