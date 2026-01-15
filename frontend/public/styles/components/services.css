@@ -11,7 +11,7 @@
 
 .services-header {
   width: 100%;
-  background-color: var(--gray-color);
+  background-color: var(--dark-gray-color);
   border-radius: 12px;
   padding: 48px 192px 48px 40px;
   gap: 16px;
@@ -20,6 +20,10 @@
   font-size: var(--title-size);
   text-transform: uppercase;
   color: var(--light-color);
+
+  span{
+    color: var(--logo-color);
+  }
 }
 
 .services-content{
@@ -55,8 +59,8 @@
   align-items: center;
 
   img{
-    width: 35px;
-    height: 35px;
+    width: 62px;
+    height: 62px;
   }
 }
 
@@ -71,8 +75,8 @@
   align-items: center;
 
   img{
-    width: 35px;
-    height: 35px;
+    width: 56px;
+    height: 56px;
   }
 }
 
@@ -86,7 +90,7 @@
 .services-item-description{
   font-family: var(--roboto-flex-font);
   color: var(--light-gray-color);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .services-item-price{
@@ -98,4 +102,12 @@
   align-self: flex-end;
   width: 100%;
   text-align: right;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-end;
+
+  span{
+    text-align: center;
+  }
 }

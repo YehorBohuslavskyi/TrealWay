@@ -41,6 +41,10 @@
       align-items: center;
       gap: 25px;
 
+      span{
+        color: var(--logo-color);
+      }
+
       a{
         font-family: var(--roboto-flex-font);
         font-weight: 600;

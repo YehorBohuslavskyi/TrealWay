@@ -46,6 +46,14 @@ function feedback(event){
 
     alert('Message sent!');
 
+    fetch('http://localhost:5000/client', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, questionText: message }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
     nameField.value = '';
     emailField.value = '';
     messageField.value = '';

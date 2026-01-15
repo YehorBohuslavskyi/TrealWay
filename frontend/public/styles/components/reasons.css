@@ -11,7 +11,7 @@
 
 .reasons-header {
   width: 100%;
-  background-color: var(--gray-color);
+  background-color: var(--dark-gray-color);
   border-radius: 12px;
   padding: 48px 192px 48px 40px;
   gap: 16px;
@@ -35,12 +35,12 @@
 .reasons-item {
   background-color: var(--dark-gray-color);
   padding: 32px;
-  gap: 24px;
+  gap: 32px;
   display: flex;
   flex-direction: column;
   border-radius: 12px;
   width: 450px;
-  height: fit-content;
+  height: 288px;
 }
 
 .reasons-title {
