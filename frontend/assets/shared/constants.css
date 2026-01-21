@@ -9,7 +9,9 @@
   --light-violet-color: #D2CDEA;
   --logo-color: #988BDA;
   --border-gray-color: #1F1F1F;
-  --header-color: rgba(26, 26, 26, 0.8);
+  --header-color: #0F0F0FCC;
+  --header-blur-color: #1A1A1ACC;
+
 
   --btn-bgc-idle: #0F0F0F;
   --btn-txt-idle: #81807E;
