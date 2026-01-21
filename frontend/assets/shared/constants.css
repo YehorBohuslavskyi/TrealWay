@@ -12,8 +12,8 @@
   --header-color: rgba(26, 26, 26, 0.8);
 
 
-  --roboto-mono-font: "text", sans-serif;
-  --roboto-flex-font: "Roboto Flex", sans-serif;
+  --roboto-flex-font: 'Roboto Flex', sans-serif;
+  --roboto-mono-font: 'Roboto Mono', monospace;
 
 
   --runnung-line: 30s;
@@ -28,16 +28,18 @@
   --a-size: 18px;
 }
 
-@font-face {
-  font-family: 'text';
-  src: url('../fonts/roboto-mono/RobotoMono-Regular.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: 'text';*/
+/*  src: url('../fonts/roboto-mono/RobotoMono-Regular.ttf') format('ttf');*/
+/*  font-weight: 500;*/
+/*  font-style: normal;*/
+/*}*/
 
-@font-face {
-  font-family: 'Roboto Flex';
-  src: url('../fonts/RobotoFlex.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: 'Roboto Flex';*/
+/*  src: url('../fonts/RobotoFlex.ttf') format('ttf');*/
+/*  font-weight: 500;*/
+/*  font-style: normal;*/
+/*}*/
+
+
