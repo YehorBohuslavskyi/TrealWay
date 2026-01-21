@@ -11,10 +11,21 @@
   --border-gray-color: #1F1F1F;
   --header-color: rgba(26, 26, 26, 0.8);
 
+  --btn-bgc-idle: #0F0F0F;
+  --btn-txt-idle: #81807E;
+
+  --btn-bgc-hover: #1F1F1F;
+  --btn-txt-hover: #CCCCCC;
+  --btn-border-hover: #333333;
+
+  --pp-btn-bgc-idle: #7563CE;
+  --pp-btn-txt-idle: #0F0F0F;
+
+  --pp-btn-bgc-hover: #988BDA;
+  --pp-btn-txt-hover: #0F0F0F;
 
   --roboto-flex-font: 'Roboto Flex', sans-serif;
   --roboto-mono-font: 'Roboto Mono', monospace;
-
 
   --runnung-line: 30s;
   --runnung-line-color: #676665;
@@ -27,19 +38,3 @@
   --q-size: 20px;
   --a-size: 18px;
 }
-
-/*@font-face {*/
-/*  font-family: 'text';*/
-/*  src: url('../fonts/roboto-mono/RobotoMono-Regular.ttf') format('ttf');*/
-/*  font-weight: 500;*/
-/*  font-style: normal;*/
-/*}*/
-
-/*@font-face {*/
-/*  font-family: 'Roboto Flex';*/
-/*  src: url('../fonts/RobotoFlex.ttf') format('ttf');*/
-/*  font-weight: 500;*/
-/*  font-style: normal;*/
-/*}*/
-
-

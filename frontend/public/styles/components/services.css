@@ -64,20 +64,56 @@
   }
 }
 
-.services-item-btn{
-  display: flex;
-  gap: 16px;
-  text-transform: uppercase;
-  font-family: var(--roboto-flex-font);
-  color: var(--light-gray-color);
-  font-weight: 500;
-  font-size: 18px;
-  align-items: center;
+.services-item-price:hover span {
+  color: var(--violet-color);
+}
 
-  img{
-    width: 56px;
-    height: 56px;
-  }
+.services-item-btn:hover img {
+  content: url('../../../assets/images/arrows/left.svg');
+}
+
+.services-item-price {
+  transition: color 0.3s ease;
+}
+
+.services-item-price:hover {
+  color: var(--violet-color);
+}
+
+.services-item-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 56px;
+}
+
+.services-item-btn img {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.arrow-default {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.arrow-hover {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.services-item-btn:hover .arrow-default {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.services-item-btn:hover .arrow-hover {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .services-item-content{

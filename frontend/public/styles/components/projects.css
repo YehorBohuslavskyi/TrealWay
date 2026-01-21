@@ -53,7 +53,7 @@
   flex-direction: column;
 }
 
-.projects-name{
+.projects-name {
   gap: 16px;
   width: 100%;
   display: flex;
@@ -63,6 +63,54 @@
   font-weight: 500;
   font-size: 24px;
   text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  padding-left: 72px;
+}
+
+.projects-name img {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  left: 0;
+}
+
+.arrow-default {
+  opacity: 1;
+}
+
+.arrow-hover {
+  opacity: 0;
+}
+
+.projects-name:hover .arrow-default {
+  animation: smoothFadeOut 0.25s ease forwards;
+}
+
+.projects-name:hover .arrow-hover {
+  animation: smoothFadeIn 0.25s ease forwards;
+}
+
+@keyframes smoothFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .projects-flags{
@@ -224,6 +272,11 @@
   display: none;
 }
 
+.projects-btn:hover, .projects-demo:hover{
+  background-color: var(--pp-btn-bgc-hover);
+  color: var(--pp-btn-txt-hover);
+}
+
 @media screen and (max-width: 786px) {
   .projects{
     gap: 12px;
@@ -320,5 +373,15 @@
     font-size: 14px;
     text-transform: uppercase;
     order: 3;
+  }
+
+  .projects-name {
+    font-size: 20px;
+    padding-left: 68px;
+  }
+
+  .projects-name img {
+    width: 52px;
+    height: 52px;
   }
 }

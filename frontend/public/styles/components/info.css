@@ -108,6 +108,11 @@
     align-items: center;
     white-space: nowrap;
     flex-shrink: 0;
+
+    img{
+      width: 8px;
+      height: 8px;
+    }
   }
 
   .ticker__item span {
@@ -206,7 +211,7 @@
   font-weight: 600;
   text-transform: uppercase;
   color: var(--violet-color);
-
+  transition: color 0.3s ease;
 }
 
 @keyframes ticker-move{

@@ -1,20 +1,32 @@
-function qaButton(el) {
+function initQAToggle() {
+  const toggleButtons = document.querySelectorAll('.qa-toggle');
+
   const OPEN_ICON = '../../assets/images/qa/plus.svg';
   const CLOSE_ICON = '../../assets/images/qa/minus.svg';
 
-  const item = el.closest('.qa-question');
-  if (!item) return;
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const qaItem = this.closest('.qa-question') || this.closest('.qa-item');
+      if (!qaItem) return;
 
-  const isOpen = item.classList.toggle('open');
+      const isOpen = qaItem.classList.toggle('open');
 
-  const answer = item.querySelector('.qa-question-answer');
-  if (answer) {
-    answer.style.display = isOpen ? 'block' : 'none';
+      const answer = qaItem.querySelector('.qa-question-answer') || qaItem.querySelector('.qa-answer');
 
-    const img = el.querySelector('img');
-    if (img) {
-      img.src = isOpen ? CLOSE_ICON : OPEN_ICON;
-      img.alt = isOpen ? 'close' : 'open';
-    }
-  }
+      if (answer) {
+        answer.style.display = isOpen ? 'block' : 'none';
+        answer.classList.toggle('show', isOpen);
+      }
+
+      const img = this.querySelector('img');
+      if (img) {
+        img.src = isOpen ? CLOSE_ICON : OPEN_ICON;
+        img.alt = isOpen ? 'close' : 'open';
+      }
+
+      this.classList.toggle('open', isOpen);
+    });
+  });
 }
+
+window.initQAToggle = initQAToggle;

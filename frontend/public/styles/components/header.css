@@ -53,18 +53,34 @@
     transition: color 0.3s ease;
   }
 
-  a:hover{
-    color: var(--light-violet-color);
-
+  .nav-item{
+    background-color: var(--btn-bgc-idle);
+    color: var(--btn-txt-idle);
+    border: none;
   }
 
-  .active{
-    color: var(--violet-color);
+  .nav-item:hover{
+    background-color: var(--btn-bgc-hover);
+    color: var(--btn-txt-hover);
+    border: 2px solid var(--btn-border-hover);
   }
 
   .contact-us{
-    background-color: var(--dark-violet-color);
-    color: var(--dark-color);
+    background-color: var(--pp-btn-bgc-idle);
+    color: var(--pp-btn-txt-idle);
+  }
+
+  .contact-us:hover{
+    background-color: var(--pp-btn-bgc-hover);
+    color: var(--pp-btn-txt-hover);
+  }
+
+  .home-btn{
+    color: var(--logo-color);
+  }
+
+  .home-btn:hover{
+    border: 2px solid var(--logo-color);
   }
 }
 
