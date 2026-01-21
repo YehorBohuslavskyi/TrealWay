@@ -83,22 +83,57 @@ namespace FeedbackMailSenderService
                 if (!MiniValidator.TryValidate<ClientRequest>(clientRequest, out var errors))
                     return Results.ValidationProblem(errors, statusCode: StatusCodes.Status422UnprocessableEntity);
 
+                if (clientRequest.BudgetMin.HasValue && clientRequest.BudgetMax.HasValue)
+                {
+                    if (clientRequest.BudgetMin > clientRequest.BudgetMax)
+                    {
+                        return Results.ValidationProblem(
+                            new Dictionary<string, string[]>
+                            {
+                                { "BudgetMin", new[] { "Budget minimum cannot be greater than maximum" } }
+                            },
+                            statusCode: StatusCodes.Status422UnprocessableEntity);
+                    }
+                }
+
                 var emailOptions = options.Value;
 
                 string senderEmail = emailOptions.SenderEmail;
                 string recipientEmail = emailOptions.RecipientEmail;
 
-                string messageBody = $"""
-                    Name: {clientRequest.Name}
-                    Email: {clientRequest.Email}
-                    {(clientRequest.QuestionText is not null ? $"Question: {clientRequest.QuestionText}" : "")}
-                """;
+                var messageBodyBuilder = new System.Text.StringBuilder();
+                messageBodyBuilder.AppendLine($"Name: {clientRequest.Name}");
+                messageBodyBuilder.AppendLine($"Email: {clientRequest.Email}");
+                messageBodyBuilder.AppendLine();
 
-                MailMessage message = null!;
-                message = new MailMessage(
+                if (clientRequest.ContactReasons != null && clientRequest.ContactReasons.Any())
+                {
+                    messageBodyBuilder.AppendLine("Contact Reasons:");
+                    foreach (var reason in clientRequest.ContactReasons)
+                    {
+                        messageBodyBuilder.AppendLine($"  • {reason}");
+                    }
+                    messageBodyBuilder.AppendLine();
+                }
+
+                if (clientRequest.BudgetMin.HasValue && clientRequest.BudgetMax.HasValue)
+                {
+                    messageBodyBuilder.AppendLine($"Budget Range: ${clientRequest.BudgetMin:N0} - ${clientRequest.BudgetMax:N0}");
+                    messageBodyBuilder.AppendLine();
+                }
+
+                if (!string.IsNullOrWhiteSpace(clientRequest.Question))
+                {
+                    messageBodyBuilder.AppendLine("Question:");
+                    messageBodyBuilder.AppendLine(clientRequest.Question);
+                }
+
+                string messageBody = messageBodyBuilder.ToString();
+
+                MailMessage message = new MailMessage(
                     from: senderEmail,
                     to: recipientEmail,
-                    subject: $"Question from {clientRequest.Name}, {clientRequest.Email}",
+                    subject: $"New Client Request from {clientRequest.Name}",
                     body: messageBody);
 
                 try
@@ -116,12 +151,12 @@ namespace FeedbackMailSenderService
                     });
                 }
 
-                logger.LogInformation("Successfully sent");
-                return Results.Ok();
+                logger.LogInformation("Successfully sent email from {Email}", clientRequest.Email);
+                return Results.Ok(new { message = "Your request has been sent successfully" });
             })
-            .WithSummary("Info about customer")
+            .WithSummary("Submit client contact form")
             .WithTags("General")
-            .WithDescription("Info about customer that will be sent by service using mail")
+            .WithDescription("Accepts client contact information including name, email, contact reasons, budget range, and question")
             .Accepts(typeof(ClientRequest), "application/json")
             .Produces(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
