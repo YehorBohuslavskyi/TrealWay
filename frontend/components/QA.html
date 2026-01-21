@@ -50,26 +50,67 @@
         <div class="qa-question-answer">Answer</div>
       </div>
     </div>
+
+
     <div class="qa-form">
       <div class="form-header">ask your question</div>
       <form id="qaForm" class="form" novalidate>
-        <div class="field">
-          <label for="q-name">NAME</label>
-          <input class="name-field" type="text" id="q-name" name="name" placeholder="Enter your name" required>
+        <div class="field-row">
+          <div class="field">
+            <label for="q-name">NAME</label>
+            <input class="name-field" type="text" id="q-name" name="name" placeholder="Enter your name" required>
+          </div>
+          <div class="field">
+            <label for="q-email">EMAIL</label>
+            <input type="email" id="q-email" name="email" class="email-field" placeholder="Enter your email" required>
+          </div>
         </div>
 
         <div class="field">
-          <label for="q-email">EMAIL</label>
-          <input type="email" id="q-email" name="email" class="email-field" placeholder="Enter your email" required>
+          <label>WHY ARE YOU CONTACTING US?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" name="reason" value="web-design">
+              <span>Web Design</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="reason" value="mobile-app-design">
+              <span>Mobile App Design</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="reason" value="consulting">
+              <span>Consulting</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="reason" value="other">
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>COULD ORGANIZATION OF YOUR PROJECT</label>
+          <div class="slider-wrapper">
+            <div class="slider-container">
+              <div class="slider-track-bg"></div>
+              <div class="slider-track"></div>
+              <input type="range" min="1000" max="5000" value="1500" id="slider-1" step="100">
+              <input type="range" min="1000" max="5000" value="3500" id="slider-2" step="100">
+              <div class="slider-value-left" id="value-left">$1,500</div>
+              <div class="slider-value-right" id="value-right">$3,500</div>
+            </div>
+          </div>
         </div>
 
         <div class="field">
           <label for="q-question">YOUR QUESTION</label>
-          <textarea class="message-field" id="q-question" name="question" rows="7" placeholder="Enter Your Question Here ....."></textarea>
+          <textarea class="message-field" id="q-question" name="question" rows="4" placeholder="Enter Your Question Here"></textarea>
         </div>
 
         <button type="button" class="send-btn" onclick="feedback(event)">SEND YOUR MESSAGE</button>
       </form>
     </div>
+
+
   </div>
 </div>

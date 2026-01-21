@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { url: '../../components/reasons.html', target: '#reasons-placeholder' },
     { url: '../../components/services.html', target: '#services-placeholder' },
     { url: '../../components/projects.html', target: '#projects-placeholder' },
-    { url: '../../components/QA.html', target: '#qa-placeholder', onload: 'initQAToggle' },
+    { url: '../../components/QA.html', target: '#qa-placeholder', onload: 'initQA' },
     { url: '../../components/footer.html', target: '#footer-placeholder', onload: 'initFooter' },
   ];
 
