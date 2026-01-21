@@ -191,6 +191,7 @@
 @media screen and (max-width: 786px) {
   .qa{
     gap: 12px;
+    padding: 0;
   }
 
   .qa-header{
