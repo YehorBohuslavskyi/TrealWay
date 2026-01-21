@@ -10,14 +10,15 @@
 .introduction{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
 .content{
-  width: 950px;
-  flex: 1.5;
+  width: 60%;
+  height: 576px;
+  /*flex: 1.5;*/
   border-radius: 24px;
   padding: 96px 24px 24px 24px;
   gap: 24px;
@@ -37,7 +38,7 @@
       width: 100%;
       height: 117px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       gap: 25px;
 
@@ -93,7 +94,6 @@
     display: flex;
     gap: 48px;
     align-items: center;
-    /* Start from right side for immediate visibility */
     animation: ticker-move 30s linear infinite;
     will-change: transform;
   }
@@ -137,12 +137,17 @@
 }
 
 .video{
-  flex: 1.5;
-  height: 100%;
+  /*flex: 1.5;*/
+  width: 672px;
+  height: 576px;
+  border-radius: 24px;
+  border: 2px solid var(--dark-violet-color);
 
   img{
     width: 100%;
-    height: 576px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
   }
 }
 
@@ -215,3 +220,101 @@
     transform: translateX(0);
   }
 }
+
+@media screen and (max-width: 786px) {
+  .info{
+    height: auto;
+  }
+
+  .introduction{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .content{
+    border-radius: 16px;
+    padding: 16px;
+    gap: 16px;
+    width: 100%;
+    height: auto;
+
+    .title{
+      height: 84px;
+      padding: 0 8px;
+      gap: 4px;
+      display: flex;
+      flex-direction: column;
+
+      .subtitle{
+        a{
+          font-size: 28px;
+        }
+
+        img{
+          width: 240px;
+          height: 62px;
+        }
+      }
+    }
+
+    .text{
+      font-family: var(--roboto-flex-font);
+      height: 103px;
+      padding: 0  0 0 8px;
+      font-size: 14px;
+      color: var(--light-gray-color);
+      line-height: 150%;
+    }
+
+    .carousel{
+      height: 48px;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .ticker__item span {
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .video{
+    width: 100%;
+    height: 395px;
+    border-radius: 16px;
+
+    img{
+      border-radius: 16px;
+    }
+  }
+
+  .info-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    padding: 8px;
+    gap: 8px;
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  .item {
+    padding: 24px 16px;
+  }
+
+  .item:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .item-title {
+    font-size: 14px;
+    color: #B3B3B2;
+  }
+
+  .item-content {
+    font-size: 40px;
+  }
+}
+

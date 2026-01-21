@@ -111,3 +111,44 @@
     text-align: center;
   }
 }
+
+@media screen and (max-width: 786px) {
+  .services{
+    border-radius: 16px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .services-header{
+    border-radius: 12px;
+    padding: 24px 16px;
+    gap: 24px;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .services-content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .services-item{
+    border-radius: 12px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .services-item-type{
+    font-size: 20px;
+  }
+
+  .services-item-description{
+    font-size: 14px;
+  }
+
+  .services-item-price{
+    font-size: 18px;
+  }
+}

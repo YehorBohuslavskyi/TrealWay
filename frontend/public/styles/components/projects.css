@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--border-gray-color);
   border-radius: 24px;
   padding: 24px;
   gap: 24px;
@@ -187,12 +186,19 @@
     flex-wrap: wrap;
     align-content: flex-start;
 
-    img{
+    span{
+      background-color: var(--violet-color);
+      border-radius: 50%;
       width: 44px;
       height: 44px;
-      border-radius: 50%;
-      background-color: var(--dark-violet-color);
-      object-fit: cover;
+
+      img{
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        object-fit: cover;
+        filter: saturate(0%);
+      }
     }
   }
 }
@@ -214,6 +220,105 @@
   justify-content: center;
 }
 
-.projects-content{
+.projects-demo{
+  display: none;
+}
 
+@media screen and (max-width: 786px) {
+  .projects{
+    gap: 12px;
+  }
+
+  .projects-header{
+    border-radius: 12px;
+    padding: 24px 16px;
+    gap: 24px;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .projects-content{
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-item{
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 8px;
+    gap: 8px;
+    height: auto;
+  }
+
+  .projects-flags{
+    gap: 8px;
+
+    div{
+      border-radius: 100px;
+      padding: 6px 12px;
+      gap: 6px;
+
+      a, span{
+        font-size: 12px;
+      }
+    }
+  }
+
+  .projects-description{
+    font-size: 14px;
+  }
+
+  .projects-mockup{
+    order: 1;
+    width: 100%;
+    height: auto;
+
+    img{
+      width: 100%;
+      height: 272px;
+      border-radius: 12px;
+    }
+  }
+
+  .projects-right{
+    order: 2;
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    border-radius: 12px;
+    gap: 12px;
+  }
+
+  .projects-name{
+    font-size: 20px;
+
+    img{
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  .projects-left{
+    display: none;
+  }
+
+  .projects-demo{
+    width: 100%;
+    height: 52px;
+    display: flex;
+    border-radius: 12px;
+    padding: 16px 24px;
+    background-color: var(--dark-violet-color);
+    color: var(--dark-color);
+    align-items: center;
+    justify-content: center;
+    font-family: var(--roboto-mono-font);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    order: 3;
+  }
 }

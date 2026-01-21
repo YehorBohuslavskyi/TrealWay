@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
   const components = [
-    { url: '../../components/header.html', target: '#header-placeholder'},
+    { url: '../../components/header.html', target: '#header-placeholder', onload: 'initHeader'},
     { url: '../../components/info.html', target: '#info-placeholder' },
     { url: '../../components/reasons.html', target: '#reasons-placeholder' },
     { url: '../../components/services.html', target: '#services-placeholder' },
     { url: '../../components/projects.html', target: '#projects-placeholder' },
-    { url: '../../components/QA.html', target: '#qa-placeholder' },
-    { url: '../../components/footer.html', target: '#footer-placeholder' },
+    { url: '../../components/QA.html', target: '#qa-placeholder', onload: 'initQA' },
+    { url: '../../components/footer.html', target: '#footer-placeholder', onload: 'initFooter' },
   ];
 
   Promise.all(
