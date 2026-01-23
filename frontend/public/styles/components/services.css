@@ -130,11 +130,10 @@
 }
 
 .services-item-price{
-  font-family: var(--roboto-flex-font);
+  font-family: var(--roboto-mono-font);
   color: var(--light-color);
   font-size: 24px;
   font-weight: 500;
-  text-transform: uppercase;
   align-self: flex-end;
   width: 100%;
   text-align: right;
@@ -142,10 +141,7 @@
   gap: 16px;
   align-items: center;
   justify-content: flex-end;
-
-  span{
-    text-align: center;
-  }
+  text-align: center;
 }
 
 @media screen and (max-width: 786px) {

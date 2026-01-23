@@ -528,3 +528,43 @@ input[type="range"]:active::-ms-thumb {
     font-size: 16px;
   }
 }
+
+@keyframes shake-crazy {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-3px, -3px) rotate(-1deg); }
+  20% { transform: translate(3px, 3px) rotate(1deg); }
+  30% { transform: translate(-3px, 3px) rotate(-0.5deg); }
+  40% { transform: translate(3px, -3px) rotate(0.5deg); }
+  50% { transform: translate(-3px, 0) rotate(-1deg); }
+  60% { transform: translate(3px, 0) rotate(1deg); }
+  70% { transform: translate(0, -3px) rotate(-0.5deg); }
+  80% { transform: translate(0, 3px) rotate(0.5deg); }
+  90% { transform: translate(-2px, 2px) rotate(-0.5deg); }
+}
+
+.qa-form .send-btn {
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 12px;
+  background-color: var(--dark-violet-color);
+  color: var(--dark-color);
+  font-family: var(--roboto-mono-font);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  animation: shake-crazy 0.8s ease-in-out infinite;
+}
+
+.qa-form .send-btn:hover {
+  background-color: var(--violet-color);
+  animation: shake-crazy 0.5s ease-in-out infinite;
+}
+
+.qa-form .send-btn.paused {
+  animation: none !important;
+}

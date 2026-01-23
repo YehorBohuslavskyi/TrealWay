@@ -4,6 +4,7 @@ async function feedback(event) {
   const nameField = document.querySelector('.name-field');
   const emailField = document.querySelector('.email-field');
   const messageField = document.querySelector('.message-field');
+  const sendBtn = event.target;
 
   const email = emailField.value.trim();
   const name = nameField.value.trim();
@@ -41,55 +42,66 @@ async function feedback(event) {
     isValid = false;
   }
 
+  if (!isValid) {
+    sendBtn.style.animation = 'shake-crazy 0.3s ease-in-out 3';
+    setTimeout(() => {
+      sendBtn.style.animation = 'shake-crazy 0.8s ease-in-out infinite';
+    }, 900);
+    return;
+  }
 
-  if (isValid) {
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Contact Reasons:', contactReasons);
-    console.log('Budget Range:', budgetMin, '-', budgetMax);
-    console.log('Question:', question);
+  sendBtn.classList.add('paused');
 
-    const requestData = {
-      name: name,
-      email: email,
-      contactReasons: contactReasons.length > 0 ? contactReasons : null,
-      budgetMin: budgetMin,
-      budgetMax: budgetMax,
-      question: question || null
-    };
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Contact Reasons:', contactReasons);
+  console.log('Budget Range:', budgetMin, '-', budgetMax);
+  console.log('Question:', question);
 
-    try {
-      const response = await fetch('http://localhost:5000/client', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(requestData)
-      });
+  const requestData = {
+    name: name,
+    email: email,
+    contactReasons: contactReasons.length > 0 ? contactReasons : null,
+    budgetMin: budgetMin,
+    budgetMax: budgetMax,
+    question: question || null
+  };
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Server error:', errorData);
-        alert('Failed to send your request. Please try again.');
-        return;
-      }
+  try {
+    const response = await fetch('http://localhost:5000/client', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestData)
+    });
 
-      const result = await response.json();
-      console.log('Success:', result);
-      alert('Message sent successfully!');
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Server error:', errorData);
+      alert('Failed to send your request. Please try again.');
 
-      nameField.value = '';
-      emailField.value = '';
-      messageField.value = '';
-
-      checkboxes.forEach(cb => cb.checked = false);
-
-      if (sliderOne) sliderOne.value = 1000;
-      if (sliderTwo) sliderTwo.value = 5000;
-
-    } catch (error) {
-      console.error('Network error:', error);
-      alert('Network error. Please check your connection and try again.');
+      sendBtn.classList.remove('paused');
+      return;
     }
+
+    const result = await response.json();
+    console.log('Success:', result);
+    alert('Message sent successfully!');
+
+    nameField.value = '';
+    emailField.value = '';
+    messageField.value = '';
+
+    document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+    if (sliderOne) sliderOne.value = 1000;
+    if (sliderTwo) sliderTwo.value = 5000;
+
+  } catch (error) {
+    console.error('Network error:', error);
+    alert('Network error. Please check your connection and try again.');
+
+    sendBtn.classList.remove('paused');
   }
 }

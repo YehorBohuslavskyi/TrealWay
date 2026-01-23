@@ -58,6 +58,10 @@
   font-weight: 400;
   color: var(--light-gray-color);
   gap: 12px;
+
+  span{
+    color: var(--light-violet-color);
+  }
 }
 
 .reasons-text{
