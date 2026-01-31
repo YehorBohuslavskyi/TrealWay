@@ -1,3 +1,8 @@
+function initInfo() {
+  animateCounters();
+  animationText();
+}
+
 function animateCounters() {
   const counters = document.querySelectorAll('.item-content');
 
@@ -50,3 +55,28 @@ function animateCounter(element) {
 }
 
 window.animateCounters = animateCounters;
+
+function animationText() {
+  const typewriterText = document.getElementById('typewriter-text');
+
+  if (!typewriterText) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+
+        typewriterText.classList.remove('typewriter-animation');
+        void typewriterText.offsetWidth;
+        typewriterText.classList.add('typewriter-animation');
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(typewriterText);
+  console.log('text animation');
+}
+
+
+window.animationText = animationText;

@@ -13,13 +13,16 @@
   width: 100%;
   background-color: var(--dark-gray-color);
   border-radius: 12px;
-  padding: 48px 192px 48px 40px;
+  padding: 48px 40px 48px 40px;
   gap: 16px;
   font-family: var(--roboto-flex-font);
   font-weight: 600;
   font-size: var(--title-size);
   text-transform: uppercase;
   color: var(--light-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   span {
     color: var(--logo-color);

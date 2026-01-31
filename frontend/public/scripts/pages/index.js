@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const components = [
     { url: '../../components/header.html', target: '#header-placeholder', onload: 'initHeader'},
-    { url: '../../components/info.html', target: '#info-placeholder', onload: 'animateCounters'},
+    { url: '../../components/info.html', target: '#info-placeholder', onload: 'initInfo'},
     { url: '../../components/reasons.html', target: '#reasons-placeholder' },
     { url: '../../components/services.html', target: '#services-placeholder' },
     { url: '../../components/projects.html', target: '#projects-placeholder' },
