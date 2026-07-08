@@ -1,0 +1,41 @@
+:root {
+  --dark-color: #0F0F0F;
+  --light-color: #FFFFFF;
+  --dark-gray-color: #1A1A1A;
+  --gray-color: #1C1C21;
+  --light-gray-color: #81807E;
+  --violet-color: #BAB1E7;
+  --dark-violet-color: #7563CE;
+  --light-violet-color: #D2CDEA;
+  --logo-color: #988BDA;
+  --border-gray-color: #1F1F1F;
+  --header-color: #0F0F0FCC;
+  --header-blur-color: #1A1A1ACC;
+
+  --btn-bgc-idle: #0F0F0F;
+  --btn-txt-idle: #81807E;
+
+  --btn-bgc-hover: #1F1F1F;
+  --btn-txt-hover: #CCCCCC;
+  --btn-border-hover: #333333;
+
+  --pp-btn-bgc-idle: #7563CE;
+  --pp-btn-txt-idle: #0F0F0F;
+
+  --pp-btn-bgc-hover: #988BDA;
+  --pp-btn-txt-hover: #0F0F0F;
+
+  --roboto-flex-font: 'Roboto Flex', sans-serif;
+  --roboto-mono-font: 'Roboto Mono', monospace;
+
+  --runnung-line: 30s;
+  --runnung-line-color: #676665;
+
+  --title-size: 36px;
+  --title-btn-size: 18px;
+
+  --text-size: 26px;
+
+  --q-size: 20px;
+  --a-size: 18px;
+}

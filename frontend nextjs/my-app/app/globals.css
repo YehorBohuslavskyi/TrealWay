@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0F0F0F;
+  --color-foreground: #FFFFFF;
+
+  --color-dark: #0F0F0F;
+  --color-dark-gray: #1A1A1A;
+  --color-gray: #1C1C21;
+  --color-light-gray: #81807E;
+  --color-violet: #BAB1E7;
+  --color-dark-violet: #7563CE;
+  --color-light-violet: #D2CDEA;
+  --color-logo: #988BDA;
+  --color-border-gray: #1F1F1F;
+  --color-header: #0F0F0FCC;
+  --color-header-blur: #1A1A1ACC;
+
+  --color-btn-idle: #0F0F0F;
+  --color-btn-text: #81807E;
+  --color-btn-hover: #1F1F1F;
+  --color-btn-text-hover: #CCCCCC;
+  --color-btn-border-hover: #333333;
+
+  --color-primary-idle: #7563CE;
+  --color-primary-text: #0F0F0F;
+  --color-primary-hover: #988BDA;
+
+  --color-ticker: #676665;
+
+  --font-sans: 'Roboto Flex', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-dark);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  @keyframes ticker-move {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes bg-orb-float {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(20px, -18px, 0) scale(1.06); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  .bg-orb {
+    position: absolute;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(117,99,206,0.06) 0%, rgba(117,99,206,0.02) 40%, transparent 70%);
+    filter: blur(32px);
+    animation-name: bg-orb-float;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    will-change: transform;
+    contain: layout paint;
+  }
+}
+
+@layer utilities {
+  .animate-ticker {
+    animation: ticker-move 30s linear infinite;
+  }
+  .glow-violet {
+    box-shadow: 0 0 60px 10px rgba(117, 99, 206, 0.15), 0 0 120px 30px rgba(117, 99, 206, 0.06);
+  }
+  .glow-violet-sm {
+    box-shadow: 0 0 30px 5px rgba(117, 99, 206, 0.12);
+  }
+  .text-gradient-violet {
+    background: linear-gradient(135deg, #BAB1E7 0%, #7563CE 50%, #988BDA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none !important;
+    transform: translateX(0);
+  }
+  .bg-orb {
+    animation: none !important;
+  }
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}
+
+/* Range slider thumb styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
+  height: 5px;
+  z-index: 2;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 22px;
+  width: 22px;
+  background-color: #7563CE;
+  cursor: pointer;
+  margin-top: -9px;
+  pointer-events: auto;
+  border-radius: 50%;
+  border: 3px solid #988BDA;
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #7563CE;
+  pointer-events: auto;
+  border: 3px solid #988BDA;
+  transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 3;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  border: 2px solid #988BDA;
+  box-shadow: 0 0 0 4px rgba(117, 99, 206, 0.1);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+  border: 2px solid #988BDA;
+  box-shadow: 0 0 0 4px rgba(117, 99, 206, 0.1);
+}
+
+@media (max-width: 768px) {
+  input[type="range"]::-webkit-slider-thumb {
+    height: 28px;
+    width: 28px;
+    margin-top: -12px;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    height: 28px;
+    width: 28px;
+  }
+}

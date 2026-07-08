@@ -1,0 +1,9 @@
+export { QA } from "./QA";
+export { FAQ } from "./FAQ";
+export { Footer } from "./Footer";
+export { FAQItem } from "./FAQItem";
+export { ContactForm } from "./ContactForm";
+export { BudgetSlider } from "./BudgetSlider";
+export { PurposeBlock } from "./PurposeBlock";
+export { SocialLink } from "./SocialLink";
+export { NewsletterBlock } from "./NewsletterBlock";
