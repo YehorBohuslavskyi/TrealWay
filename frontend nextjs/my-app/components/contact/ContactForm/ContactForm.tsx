@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { feedbackApi } from "@/shared";
+import { toast } from "@/components/ui";
 import { BudgetSlider } from "@/components/contact/BudgetSlider";
 
 export function ContactForm() {
@@ -59,10 +60,10 @@ export function ContactForm() {
         question: question.trim() || null,
       });
       if (!res.ok) {
-        alert(t("errorMsg"));
+        toast.error(t("errorMsg"));
         return;
       }
-      alert(t("successMsg"));
+      toast.success(t("successMsg"));
       setName("");
       setEmail("");
       setQuestion("");
@@ -70,7 +71,7 @@ export function ContactForm() {
       setSlider1(10000);
       setSlider2(50000);
     } catch {
-      alert(t("networkError"));
+      toast.error(t("networkError"));
     } finally {
       setSending(false);
     }
